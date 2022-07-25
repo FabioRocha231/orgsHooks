@@ -8,6 +8,10 @@ export default function useProducers(): [string, ProducerProps[]] {
 
   useEffect(() => {
     const data = loadProducers();
+    data.list.sort(
+      (first: ProducerProps, second: ProducerProps) =>
+        (first.distance as number) - (second.distance as number),
+    );
     setProducers(data.list);
     setTitle(data.title);
   }, []);
