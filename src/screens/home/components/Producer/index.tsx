@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+/* eslint-disable @typescript-eslint/no-shadow */
+import React, {useReducer} from 'react';
 import {
   Image,
   ImageSourcePropType,
@@ -17,11 +18,9 @@ export type ProducerProps = {
 };
 
 export const Producer = ({name, image, distance, stars}: ProducerProps) => {
-  const [selected, setSelected] = useState<boolean>(false);
+  const [selected, invertSelected] = useReducer(selected => !selected, false);
   return (
-    <TouchableOpacity
-      onPress={() => setSelected(!selected)}
-      style={producerStyles.card}>
+    <TouchableOpacity onPress={invertSelected} style={producerStyles.card}>
       <Image
         style={producerStyles.image}
         source={image as ImageSourcePropType}
