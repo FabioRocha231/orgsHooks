@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-shadow */
-import React, {useReducer} from 'react';
+import React, {useReducer, useMemo} from 'react';
 import {
   Image,
   ImageSourcePropType,
@@ -17,8 +17,23 @@ export type ProducerProps = {
   stars: number;
 };
 
+const distanceAndMetersOrKms = (distance: number) => {
+  console.log('abublee');
+  if (distance <= 1000) {
+    return `${distance} m`;
+  } else if (distance > 1000) {
+    return `${(distance / 1000).toFixed(2)} km`;
+  }
+};
+
 export const Producer = ({name, image, distance, stars}: ProducerProps) => {
   const [selected, invertSelected] = useReducer(selected => !selected, false);
+
+  const distanceText = useMemo(
+    () => distanceAndMetersOrKms(distance as number),
+    [distance],
+  );
+
   return (
     <TouchableOpacity onPress={invertSelected} style={producerStyles.card}>
       <Image
@@ -31,7 +46,7 @@ export const Producer = ({name, image, distance, stars}: ProducerProps) => {
           <Text style={producerStyles.name}>{name}</Text>
           <Stars quantity={stars} editable={selected} big={selected} />
         </View>
-        <Text style={producerStyles.distance}>{distance}</Text>
+        <Text style={producerStyles.distance}>{distanceText}</Text>
       </View>
     </TouchableOpacity>
   );
