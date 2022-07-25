@@ -18,7 +18,6 @@ export type ProducerProps = {
 };
 
 const distanceAndMetersOrKms = (distance: number) => {
-  console.log('abublee');
   if (distance <= 1000) {
     return `${distance} m`;
   } else if (distance > 1000) {
