@@ -16,8 +16,8 @@ const DEFAULT_HEIGHT = 270;
 
 export type HeaderProps = {
   title: string;
-  image: string;
-  height: number;
+  image?: ImageSourcePropType;
+  height?: number;
 };
 
 export const Header = ({
@@ -28,10 +28,7 @@ export const Header = ({
   const HeaderStyles = HeaderStylesFunction(height);
   return (
     <>
-      <Image
-        source={image as ImageSourcePropType}
-        style={HeaderStyles.header}
-      />
+      <Image source={image} style={HeaderStyles.header} />
       <Gradiente
         width={width}
         height={(130 / 360) * width}

@@ -2,9 +2,10 @@ import {useState, useEffect} from 'react';
 import {ProducerProps} from '../mocks/producers';
 import {loadProducers} from '../services/loadData';
 
-export default function useProducers(): [string, ProducerProps[]] {
+export default function useProducers(
+  bestProducers: boolean,
+): [ProducerProps[]] {
   const [producers, setProducers] = useState<ProducerProps[]>([]);
-  const [title, setTitle] = useState<string>('');
 
   useEffect(() => {
     const data = loadProducers();
@@ -12,9 +13,12 @@ export default function useProducers(): [string, ProducerProps[]] {
       (first: ProducerProps, second: ProducerProps) =>
         (first.distance as number) - (second.distance as number),
     );
-    setProducers(data.list);
-    setTitle(data.title);
-  }, []);
+    let newList = data.list;
+    if (bestProducers) {
+      newList = newList.filter((producer: ProducerProps) => producer.stars > 3);
+    }
+    setProducers(newList);
+  }, [bestProducers]);
 
-  return [title, producers];
+  return [producers];
 }

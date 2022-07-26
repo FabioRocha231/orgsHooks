@@ -1,6 +1,6 @@
 import {producersData} from '../mocks/producers';
 import {HeaderData} from '../mocks/header';
-import {texts} from '../mocks/texts';
+import {loadTexts as texts} from '../mocks/texts';
 
 export const loadProducers = () => {
   return producersData;

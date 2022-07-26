@@ -1,4 +1,4 @@
-export interface TextsProps {
+export interface ItextsData {
   greetings: string;
   subtitle: string;
   subtitleBestProducers: string;
@@ -10,7 +10,7 @@ export interface TextsProps {
   itensTitle: string;
 }
 
-export const texts: TextsProps = {
+export const loadTexts: ItextsData = {
   greetings: 'Ola Fabio',
   subtitle: 'Encontre os produtores mais próximos a você!',
   subtitleBestProducers: 'Veja os produtores com 4+ estrelas!',

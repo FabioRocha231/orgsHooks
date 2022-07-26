@@ -1,10 +1,10 @@
 import {useState, useEffect} from 'react';
-import {TextsProps} from '../mocks/texts';
+import {ItextsData} from '../mocks/texts';
 
 import {loadTexts} from '../services/loadData';
 
-export default function useTexts(): TextsProps {
-  const [texts, setTexts] = useState<TextsProps>({} as TextsProps);
+export default function useTexts(): ItextsData {
+  const [texts, setTexts] = useState<ItextsData>({} as ItextsData);
 
   useEffect(() => {
     const data = loadTexts();

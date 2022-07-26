@@ -1,9 +1,11 @@
-declare module '*.jpg' {
-  export default '' as string;
+declare module '*.png' {
+  const value: import('react-native').ImageSourcePropType;
+  export default value;
 }
 
-declare module '*.png' {
-  export default '' as string;
+declare module '*.pjpg' {
+  const value: import('react-native').ImageSourcePropType;
+  export default value;
 }
 
 declare module '*.svg' {
