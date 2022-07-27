@@ -4,7 +4,6 @@ Neste projeto iremos juntar a tela Home e Cesta do e-commerce de produtos natura
 
 ![ezgif com-gif-maker](https://user-images.githubusercontent.com/9091491/140552376-f1c1523d-5c69-42fe-a2fa-4021ed77160a.gif)
 
-
 ## ✔️ Técnicas e tecnologias utilizadas
 
 - `Utilizar React Native CLI`

@@ -1,7 +1,7 @@
 export interface ItextsData {
   greetings: string;
-  subtitle: string;
-  subtitleBestProducers: string;
+  subTitle: string;
+  subTitleBestProducers: string;
   producersTitle: string;
   producerTitle: string;
   cestTitle: string;
@@ -12,8 +12,8 @@ export interface ItextsData {
 
 export const loadTexts: ItextsData = {
   greetings: 'Ola Fabio',
-  subtitle: 'Encontre os produtores mais próximos a você!',
-  subtitleBestProducers: 'Veja os produtores com 4+ estrelas!',
+  subTitle: 'Encontre os produtores mais próximos a você!',
+  subTitleBestProducers: 'Veja os produtores com 4+ estrelas!',
   producersTitle: 'Produtores',
   producerTitle: 'Detalhe do produtor',
   cestTitle: 'Cestas',
