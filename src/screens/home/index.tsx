@@ -5,7 +5,7 @@ import {Producers} from './components/Producers';
 export default function Home() {
   return (
     <>
-      <Producers Header={Header} />
+      <Producers Header={Header} bestProducers={false} />
     </>
   );
 }
