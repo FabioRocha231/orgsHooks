@@ -18,7 +18,7 @@ export const Details = ({producerDetails, producer}: DetailsProps) => {
       <TextStyled isBold={true} customStyle={detailsStyles.name}>
         {producerDetails.name}
       </TextStyled>
-      <View>
+      <View style={detailsStyles.farm}>
         <Image source={producer.image} style={detailsStyles.farmImage} />
         <TextStyled isBold={false} customStyle={detailsStyles.farmName}>
           {producer.name}

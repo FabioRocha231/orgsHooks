@@ -7,7 +7,7 @@ import {itemStyles} from './styles';
 
 export const Item = ({name, image}: ItensProps) => {
   return (
-    <View>
+    <View style={itemStyles.item}>
       <Image source={image} style={itemStyles.image} />
       <TextStyled isBold={true} customStyle={itemStyles.name}>
         {name}

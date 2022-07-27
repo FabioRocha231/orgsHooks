@@ -11,6 +11,7 @@ import {
   ItensProps,
   ProducerProps,
 } from '../../mocks/producers';
+import {cestScreenStyles} from './styles';
 
 export type CestProps = {
   details: DetailsPropsTypes;
@@ -23,15 +24,16 @@ export const Cest = ({details, itens, producer}: CestProps) => {
   return (
     <FlatList
       data={itens}
-      renderItem={Item as any}
+      renderItem={({item}) => <Item {...item} />}
       keyExtractor={({name}) => name}
+      style={cestScreenStyles.list}
       ListHeaderComponent={() => {
         return (
           <>
             <Header title={cestHeader} />
-            <View>
+            <View style={cestScreenStyles.cest}>
               <Details producerDetails={details} producer={producer} />
-              <TextStyled isBold={true} customStyle={{}}>
+              <TextStyled isBold={true} customStyle={cestScreenStyles.title}>
                 {itensTitle}
               </TextStyled>
             </View>
