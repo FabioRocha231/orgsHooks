@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-shadow */
-import React, {useReducer, useMemo} from 'react';
+import React, { useReducer, useMemo } from 'react';
 import {
   Image,
   ImageSourcePropType,
@@ -7,14 +7,15 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import {Stars} from '../../../../components/Stars';
-import {producerStyles} from './styles';
+import { Stars } from '../../../../components/Stars';
+import { producerStyles } from './styles';
 
 export type ProducerProps = {
   name: string;
   image: string | ImageSourcePropType;
   distance: number | string;
   stars: number;
+  onPress(): void
 };
 
 const distanceAndMetersOrKms = (distance: number) => {
@@ -25,8 +26,8 @@ const distanceAndMetersOrKms = (distance: number) => {
   }
 };
 
-export const Producer = ({name, image, distance, stars}: ProducerProps) => {
-  const [selected, invertSelected] = useReducer(selected => !selected, false);
+export const ProducerCard = ({ name, image, distance, stars, onPress }: ProducerProps) => {
+  //const [selected, invertSelected] = useReducer(selected => !selected, false);
 
   const distanceText = useMemo(
     () => distanceAndMetersOrKms(distance as number),
@@ -34,7 +35,7 @@ export const Producer = ({name, image, distance, stars}: ProducerProps) => {
   );
 
   return (
-    <TouchableOpacity onPress={invertSelected} style={producerStyles.card}>
+    <TouchableOpacity onPress={onPress} style={producerStyles.card}>
       <Image
         style={producerStyles.image}
         source={image as ImageSourcePropType}
@@ -43,7 +44,7 @@ export const Producer = ({name, image, distance, stars}: ProducerProps) => {
       <View style={producerStyles.infos}>
         <View>
           <Text style={producerStyles.name}>{name}</Text>
-          <Stars quantity={stars} editable={selected} big={selected} />
+          <Stars quantity={stars} />
         </View>
         <Text style={producerStyles.distance}>{distanceText}</Text>
       </View>

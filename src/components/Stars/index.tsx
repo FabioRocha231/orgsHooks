@@ -1,16 +1,14 @@
-import React, {useState} from 'react';
-import {View} from 'react-native';
-import {StarComponent} from '../Star';
+import React, { useState } from 'react';
+import { View } from 'react-native';
+import { StarComponent } from '../Star';
 
-import {starsStyles} from './styles';
+import { starsStyles } from './styles';
 
 export type StarsProps = {
   quantity: number | string;
-  editable: boolean;
-  big: boolean;
 };
 
-export const Stars = ({quantity: oldQuantity, editable, big}: StarsProps) => {
+export const Stars = ({ quantity: oldQuantity }: StarsProps) => {
   const [quantity, setQuantity] = useState(oldQuantity);
 
   const RenderStars = () => {
@@ -19,9 +17,7 @@ export const Stars = ({quantity: oldQuantity, editable, big}: StarsProps) => {
       starsList.push(
         <StarComponent
           key={i}
-          big={big}
           onPress={() => setQuantity(i + 1)}
-          disabled={editable}
           full={i < quantity}
         />,
       );

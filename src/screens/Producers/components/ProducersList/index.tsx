@@ -1,21 +1,26 @@
 import React from 'react';
-import {FlatList, Text} from 'react-native';
-
-import {Producer} from '../Producer';
-import {producersStyles} from './styles';
+import { FlatList, Text } from 'react-native';
+import { ProducerCard } from '../ProducerCard';
+import { producersStyles } from './styles';
 import useProducers from '../../../../hooks/useProducers';
 import useTexts from '../../../../hooks/useTexts';
+import { useNavigation } from '@react-navigation/native';
+
+
+
 export type ProducersProps = {
   Header: React.FC;
   bestProducers: boolean;
 };
 
-export const Producers: React.FC<ProducersProps> = ({
+export const ProducersList: React.FC<ProducersProps> = ({
   Header,
   bestProducers,
 }) => {
+  const navigation = useNavigation();
+
   const [producers] = useProducers(bestProducers);
-  const {producersTitle} = useTexts();
+  const { producersTitle } = useTexts();
   const listHeader = () => {
     return (
       <>
@@ -28,7 +33,9 @@ export const Producers: React.FC<ProducersProps> = ({
   return (
     <FlatList
       data={producers}
-      renderItem={({item}) => <Producer {...item} />}
+      renderItem={({ item }) => <ProducerCard {...item} onPress={() => {
+        navigation.navigate('Producer')
+      }} />}
       keyExtractor={item => item.name}
       ListHeaderComponent={listHeader}
     />
