@@ -1,24 +1,24 @@
-import {useState, useEffect} from 'react';
-import {ProducerProps} from '../mocks/producers';
-import {loadProducers} from '../services/loadData';
+import { useState, useEffect } from 'react';
+import { IProducersData, ProducerProps } from '../mocks/producers';
+import { loadProducers } from '../services/loadData';
 
-export default function useProducers(
-  bestProducers: boolean,
-): [ProducerProps[]] {
-  const [producers, setProducers] = useState<ProducerProps[]>([]);
 
+export default function useProducers(bestProducer: boolean) {
+
+  const [bestProducers, setBestProducers] = useState<IProducersData>({} as IProducersData)
   useEffect(() => {
     const data = loadProducers();
+
     data.list.sort(
       (first: ProducerProps, second: ProducerProps) =>
-        (first.distance as number) - (second.distance as number),
+        (first.distance as number) - (second.distance as number)
     );
-    let newList = data.list;
-    if (bestProducers) {
-      newList = newList.filter((producer: ProducerProps) => producer.stars > 3);
+    let newList = data
+    if (bestProducer) {
+      newList.list = newList.list.filter((producer: ProducerProps) => producer.stars > 3)
     }
-    setProducers(newList);
-  }, [bestProducers]);
+    setBestProducers(newList)
+  }, [])
 
-  return [producers];
+  return [bestProducers]
 }

@@ -13,7 +13,7 @@ import abobora from '../assets/verduras/Abóbora.png';
 import cenoura from '../assets/verduras/Cenouras.png';
 import cenoura2 from '../assets/verduras/Cenouras2.png';
 import verduras from '../assets/verduras/Verduras.png';
-import {ImageSourcePropType} from 'react-native';
+import { ImageSourcePropType } from 'react-native';
 
 const gerarNumeroAleatorio = (min: number, max: number) => {
   return Math.floor(Math.random() * (max - min + 1) + min);

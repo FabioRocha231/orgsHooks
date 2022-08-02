@@ -1,12 +1,15 @@
 import React from 'react';
-import {SafeAreaView, StatusBar, StyleSheet} from 'react-native';
+import { SafeAreaView, StatusBar, StyleSheet } from 'react-native';
+import { BestProducersProvider } from './src/context/BestProducersContext';
 import AppRoutes from './src/routes/AppRoutes';
 
 export default function App() {
   return (
     <SafeAreaView style={styles.screen}>
-      <StatusBar />
-      <AppRoutes />
+      <BestProducersProvider>
+        <StatusBar />
+        <AppRoutes />
+      </BestProducersProvider>
     </SafeAreaView>
   );
 }

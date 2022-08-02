@@ -5,15 +5,28 @@ import Home from "../screens/Home";
 
 const Stack = createNativeStackNavigator();
 
-export interface ProducerRoutesProps {
-  component: React.ReactNode
+export type ProducerRoutesParamList = {
+  routeComponent?: React.FC
 }
 
-export default function ProducerRoutes<ProducerRoutesProps>({ component = Home }) {
+export default function ProducerRoutes({ routeComponent = Home }: ProducerRoutesParamList) {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="HomeScreen" component={component} />
-      <Stack.Screen name="Producer" component={ProducerInfos} />
+      <Stack.Screen
+        name="HomeScreen"
+        component={routeComponent}
+        options={{
+          headerShown: false
+        }}
+      />
+
+      <Stack.Screen
+        name="Producer Info"
+        component={ProducerInfos}
+        options={{
+          headerShown: true
+        }}
+      />
     </Stack.Navigator>
   )
 }

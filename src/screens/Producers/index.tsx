@@ -1,17 +1,16 @@
 import React from 'react';
-// import useProducers from '../../hooks/useProducers';
-// import {Cest} from '../Cest';
-import { Header } from './components/Header';
+import { ProducerProps } from '../../mocks/producers';
 import { ProducersList } from './components/ProducersList';
 
 export interface ProducerPropTypes {
-  bestProducers: boolean;
+  producers: ProducerProps[];
+  bestProducers: boolean
 }
-export default function Producer({ bestProducers }: ProducerPropTypes) {
+export default function Producer({ producers, bestProducers }: ProducerPropTypes) {
   return (
     <>
       <ProducersList
-        Header={() => <Header bestProducers={bestProducers} />}
+        producers={producers}
         bestProducers={bestProducers}
       />
     </>

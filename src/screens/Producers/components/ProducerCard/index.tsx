@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-shadow */
-import React, { useReducer, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import {
   Image,
   ImageSourcePropType,
@@ -10,7 +10,7 @@ import {
 import { Stars } from '../../../../components/Stars';
 import { producerStyles } from './styles';
 
-export type ProducerProps = {
+export type ProducerCardProps = {
   name: string;
   image: string | ImageSourcePropType;
   distance: number | string;
@@ -22,12 +22,11 @@ const distanceAndMetersOrKms = (distance: number) => {
   if (distance <= 1000) {
     return `${distance} m`;
   } else if (distance > 1000) {
-    return `${(distance / 1000).toFixed(2)} km`;
+    return `${(distance / 1000).toFixed(2)} km`
   }
 };
 
-export const ProducerCard = ({ name, image, distance, stars, onPress }: ProducerProps) => {
-  //const [selected, invertSelected] = useReducer(selected => !selected, false);
+export const ProducerCard = ({ name, image, distance, stars, onPress }: ProducerCardProps) => {
 
   const distanceText = useMemo(
     () => distanceAndMetersOrKms(distance as number),

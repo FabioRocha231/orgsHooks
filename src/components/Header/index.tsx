@@ -5,11 +5,11 @@ import {
   ImageSourcePropType,
   TouchableOpacity,
 } from 'react-native';
-import {TextStyled} from '../Text';
+import { TextStyled } from '../Text';
 import Gradiente from '../../assets/gradiente.svg';
 import headerImage from '../../assets/topo.png';
 import BackSVG from '../../assets/voltar.svg';
-import {HeaderStylesFunction} from './styles';
+import { HeaderStylesFunction } from './styles';
 
 const width = Dimensions.get('screen').width;
 const DEFAULT_HEIGHT = 270;
@@ -37,7 +37,7 @@ export const Header = ({
       <TextStyled isBold={true} customStyle={HeaderStyles.title}>
         {title}
       </TextStyled>
-      <TouchableOpacity onPress={() => {}} style={HeaderStyles.backButton}>
+      <TouchableOpacity onPress={() => { }} style={HeaderStyles.backButton}>
         <BackSVG color="white" style={HeaderStyles.back} />
       </TouchableOpacity>
     </>
